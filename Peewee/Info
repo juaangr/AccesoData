@@ -23,3 +23,32 @@ Ejemplo:
             database = db # This model uses the "people.db" database.
 
 
+Peewee inferirá automáticamente en el nombre de la tabla de la BBDD
+a partir del nombre de la clase. Puede anular el nombre predet
+con un atributo "table_name" en la clase interna "Meta" junto al 
+atributo "database"
+
+SIEMPRE NOMBRAMOS POR CONVENCIÓN A NUESTRO MODELO (tabla) DE LA 
+FORMA SINGULAR DE LA PALABRA EN CUESTION (people->person) PESE
+A QUE LA TABLA POSEA MÁS DE UNA PERSONA
+
+Hay muchos tipos de campos adecuados para almacenar distintos tipos
+de datos. Peewee se encarga de la conversión entre valores Python y los
+que usa la bbdd, por lo que puedes usar tipos Python en tu código
+sin tener que preocuparte
+
+Relaciones entre modelos mediante relaciones de clave externa. 
+Esto es sencillo con Peewee:
+
+    class Pet(Model):
+    owner = ForeignKeyField(Person, backref='pets')
+    name = CharField()
+    animal_type = CharField()
+
+    class Meta:
+        database = db # this model uses the "people.db" database
+
+
+
+
+
