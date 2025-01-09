@@ -1,0 +1,25 @@
+Peewee es un ORM (Mapeo relacional de objetos), cuya función es abstraer
+la base de datos, de modo que como programador podemos hacer consultas
+sin saber SQL, en su lugar, seguir usando el lenguaje de programación.
+
+Los objetos pertenecientes a la clase modelo, corresponden a una 
+tabla en la base de datos, una instancia de campo es una columna sobre
+la tabla y una instancia de modelo es una fila en la tabla 
+
+Al iniciar un proyecto con Peewee, por lo general es mejor empezar con 
+el modelo (de los datos, definiendo una o más clases "Model")
+
+Ejemplo:
+
+    from peewee import *
+
+    db = SqliteDatabase('people.db')
+
+    class Person(Model):
+        name = CharField()
+        birthday = DateField()
+
+        class Meta:
+            database = db # This model uses the "people.db" database.
+
+
