@@ -79,11 +79,11 @@ def ejer1_2():
     guardarXml(documento,"ejer1.xml")
     return documento
     
+"""Return a pretty-printed XML string for the Element"""
 def prettify(elem):
     from xml.etree import ElementTree
     from xml.dom import minidom
-    """Return a pretty-printed XML string for the Element.
-    """
+   
     rough_string = ElementTree.tostring(elem, 'utf-8')
     reparsed = minidom.parseString(rough_string)
     return reparsed.toprettyxml(indent="  ")
