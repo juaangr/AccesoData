@@ -67,6 +67,7 @@ def ejer1_2():
         modXml.text = mod
         colXml = ET.SubElement(coche, 'color')
         colXml.text = col
+        
         opcion = input("Estás seguro de querer añadir el coche?(si/no)")
         if(opcion.lower()=="si" or opcion.lower()=="s"):
             documento.append(coche)
