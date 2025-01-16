@@ -38,8 +38,9 @@ static Scanner sc = new Scanner(System.in);
 			fo = new FileOutputStream(NOM_FICHERO);
 			bo = new BufferedOutputStream(fo);
 			oout = new ObjectOutputStream(bo);
-			for(Contacto con: contactos)
-				oout.writeObject(con);
+			// este for le cambie porque era un for each
+			for(int i=0; i < contactos.size(); i++)
+				oout.writeObject(contactos.get(i));
 
 			Contacto c = new Contacto("nom_1","ape_1","dir_1","tel_1",(byte)25);			
 			oout.writeObject(c);			
@@ -79,8 +80,9 @@ static Scanner sc = new Scanner(System.in);
 			fo = new FileOutputStream(NOM_FICHERO);
 			bo = new BufferedOutputStream(fo);
 			oout = new ObjectOutputStream(bo);
-			for(Contacto con: contactos)
-				oout.writeObject(con);
+			// cambie el for each por un for normal
+			for(int i = 0; i < contactos.size(); i++)
+				oout.writeObject(contactos.get(i));
 			Contacto c = new Contacto(nom,ape,dir,tel,edad);			
 			oout.writeObject(c);
 						
@@ -252,8 +254,9 @@ static Scanner sc = new Scanner(System.in);
 			fo = new FileOutputStream(NOM_FICHERO);
 			bo = new BufferedOutputStream(fo);
 			oout = new ObjectOutputStream(bo);
-			for(Contacto con:contactos) {
-				oout.writeObject(con);
+			// cambie el for each por un for normal
+			for(int i= 0 ; i< contactos.size(); i++) {
+				oout.writeObject(contactos.get(i));
 			}
 						
 		} catch (Exception e) {
